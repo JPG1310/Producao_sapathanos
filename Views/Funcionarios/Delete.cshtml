@@ -1,0 +1,47 @@
+﻿@model Produção.Models.Funcionario
+
+@{
+    ViewData["Title"] = "Exclusão de Tarefa";
+}
+
+    <div class="container col-6">
+        <br />
+        <h2 class="text-center">Exclusão de Tarefa</h2>
+        <br />
+        <h6 class="text-danger text-center">Tem certeza que deseja excluir este item?</h6>
+        <div>
+            <h4>Funcionário</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col">
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
+                <dd class="col">
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
+                <dt class="col">
+                    @Html.DisplayNameFor(model => model.Setor)
+                </dt>
+                <dd class="col">
+                    @Html.DisplayFor(model => model.Setor)
+                </dd>
+                <dt class="col">
+                    @Html.DisplayNameFor(model => model.Categoria)
+                </dt>
+                <dd class="col">
+                    @Html.DisplayFor(model => model.Categoria.Descricao)
+                </dd>
+            </dl>
+
+            <br />
+            <br />
+            <form class="text-center" asp-action="Delete">
+                <input type="hidden" asp-for="FuncionarioId" />
+                <input type="submit" value="Deletar" class="btn btn-danger" />
+
+            </form>
+            <br />
+            <br />
+            <a class="text-dark" asp-action="Index"><img src="/img/list.png" />  Lista de Funcionários</a>
+        </div>
+</div>

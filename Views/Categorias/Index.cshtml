@@ -1,0 +1,62 @@
+﻿
+    @model IEnumerable<Produção.Models.Categoria>
+
+    @{
+        ViewData["Title"] = "Lista de Categorias";
+    }
+    
+        <div class="container col-8">
+            <br />
+            <h1 class="text-center font-weight-bolder">Lista de Modelos</h1>
+            <br />
+
+            <button type="button" class="btn btn-info">
+                <a asp-action="Create" class="text-light text-center"><img src="~/img/add.png" />  Novo Modelo</a>
+            </button>
+            <br />
+            <br />
+            <br />
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="font-weight-bold">
+                            @Html.DisplayNameFor(model => model.Descricao)
+                        </th>
+                       
+                        <th class="font-weight-bold text-center">
+                            Ações
+                        </th>
+                     
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                      
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Descricao)
+                        </td>
+                
+                       
+                        <td class="text-right">
+                            <button type="button" class="btn btn-light">
+                                <a asp-action="Edit" class="text-dark" asp-route-id="@item.Id"><img src="/img/edit.png" alt="Editar" />Editar</a>
+                            </button>
+
+                            <button type="button" class="btn btn-light">
+                                <a asp-action="Details" class="text-dark" asp-route-id="@item.Id"><img src="/img/eye.png" alt="Visualizar" />Visualizar</a>
+                            </button>
+
+                            <button type="button" class="btn btn-danger">
+                                <a asp-action="Delete" class="text-light" asp-route-id="@item.Id"><img src="/img/trash.png" alt="Deletar" />Deletar</a>
+                            </button>
+                        </td>
+                      
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

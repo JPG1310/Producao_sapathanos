@@ -1,0 +1,36 @@
+﻿@model Produção.Models.Categoria
+
+@{
+    ViewData["Title"] = "Edição de Categoria";
+}
+    <div class="container col-4">
+        <br />
+        <h2 class="text-center">Edição de Modelos</h2>
+        <br />
+        <h5>Categoria</h5>
+        <hr />
+        <div class="row">
+            <div class="col">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="Descricao" class="control-label"></label>
+                        <input asp-for="Descricao" class="form-control" />
+                        <span asp-validation-for="Descricao" class="text-danger"></span>
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="submit" value="Salvar" class="btn btn-info" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div>
+            <a class="text-dark" asp-action="Index"><img src="/img/list.png" />  Lista de Modelos</a>
+        </div>
+    </div>
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }
